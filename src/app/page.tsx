@@ -21,8 +21,8 @@ const slides = [
 
 const slideVariants = {
   enter: (direction: number) => ({ x: direction > 0 ? 1000 : -1000, opacity: 0, scale: 0.95 }),
-  center: { zIndex: 10, x: 0, opacity: 1, scale: 1, transition: { x: { type: "spring", stiffness: 250, damping: 30 }, opacity: { duration: 0.2 }, scale: { duration: 0.4 } } },
-  exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 1000 : -1000, opacity: 0, scale: 0.95, transition: { x: { type: "spring", stiffness: 250, damping: 30 }, opacity: { duration: 0.2 } } })
+  center: { zIndex: 10, x: 0, opacity: 1, scale: 1, transition: { x: { type: "spring" as const, stiffness: 250, damping: 30 }, opacity: { duration: 0.2 }, scale: { duration: 0.4 } } },
+  exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 1000 : -1000, opacity: 0, scale: 0.95, transition: { x: { type: "spring" as const, stiffness: 250, damping: 30 }, opacity: { duration: 0.2 } } })
 };
 
 const storytellingTexts = [
@@ -46,7 +46,7 @@ const BOKEH_LIGHTS = [
 export default function LandingPage() {
   const [[page, direction], setPage] = useState([0, 0]);
   const [textIndex, setTextIndex] = useState(0);
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<any[]>([]); // eslint-disable-line @typescript-eslint/no-explicit-any
 
   useEffect(() => {
     const PARTICLES_COUNT = 50;
@@ -58,7 +58,7 @@ export default function LandingPage() {
       duration: Math.random() * 6 + 4,
       sway: Math.random() * 30 - 15,
     }));
-    setParticles(newParticles);
+    setParticles(newParticles); // eslint-disable-line react-hooks/set-state-in-effect
 
     const interval = setInterval(() => {
       setTextIndex((prev) => (prev + 1) % storytellingTexts.length);
@@ -99,7 +99,7 @@ export default function LandingPage() {
         {/* Botones de Acción */}
         <div className="flex items-center gap-4 md:gap-6">
           <Link 
-            href="/login" 
+            href="/dashboard" 
             className="text-xs font-bold tracking-widest uppercase text-brand-porcelain/80 hover:text-brand-bronze transition-colors duration-300 hidden sm:block"
           >
             Iniciar Sesión

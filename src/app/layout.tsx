@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/shared/lib/AuthContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: "EventFlow AI - Admin",
-  description: "Panel de Administración",
+  description: "Panel de Administración Web",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
-        {children}
+      <body className={`${inter.variable} ${playfair.variable} antialiased bg-[#0d131f]`}>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
