@@ -57,6 +57,7 @@ La identidad visual se mantiene sincronizada con la app móvil para ofrecer una 
 
 El proyecto implementa una **Arquitectura Basada en Características (Feature-Based Architecture)**, ideal para escalar a futuro:
 
+```text
 src/
 ├── app/                      # Enrutamiento y páginas (Next.js App Router)
 │   ├── (auth)/login/         # Pantallas de autenticación (Público)
@@ -73,6 +74,7 @@ src/
 │   ├── components/layout/    # Sidebar, Topbar
 │   └── lib/                  # Configuración de Firebase (firebase.ts)
 └── assets/                   # Imágenes y recursos locales
+```
 
 ---
 
