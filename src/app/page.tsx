@@ -46,7 +46,7 @@ const BOKEH_LIGHTS = [
 export default function LandingPage() {
   const [[page, direction], setPage] = useState([0, 0]);
   const [textIndex, setTextIndex] = useState(0);
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<any[]>([]); // eslint-disable-line @typescript-eslint/no-explicit-any
 
   useEffect(() => {
     const PARTICLES_COUNT = 50;
@@ -58,7 +58,7 @@ export default function LandingPage() {
       duration: Math.random() * 6 + 4,
       sway: Math.random() * 30 - 15,
     }));
-    setParticles(newParticles);
+    setParticles(newParticles); // eslint-disable-line react-hooks/set-state-in-effect
 
     const interval = setInterval(() => {
       setTextIndex((prev) => (prev + 1) % storytellingTexts.length);

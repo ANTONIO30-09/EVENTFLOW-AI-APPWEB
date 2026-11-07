@@ -41,3 +41,16 @@ yarn-error.log*
 next-env.d.ts
 .firebase/
 .firebaserc
+
+
+# firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# env variants
+.env*.local
+.env.production.local
+
+# excepción: el archivo de ejemplo SÍ se version

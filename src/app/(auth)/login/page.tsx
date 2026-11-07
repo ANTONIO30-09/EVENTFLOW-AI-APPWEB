@@ -21,7 +21,11 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/dashboard");
+      chore/formalizacion-repo
+    } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
+
     } catch (err: any) {
+      dev
       console.error(err);
       // Traducimos el error de Firebase a un mensaje amigable
       if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") {
