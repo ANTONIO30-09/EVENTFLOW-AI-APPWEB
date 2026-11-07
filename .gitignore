@@ -42,6 +42,7 @@ next-env.d.ts
 .firebase/
 .firebaserc
 
+
 # firebase
 .firebase/
 firebase-debug.log
@@ -52,5 +53,4 @@ ui-debug.log
 .env*.local
 .env.production.local
 
-# excepción: el archivo de ejemplo SÍ se versiona
-!.env.example
+# excepción: el archivo de ejemplo SÍ se version

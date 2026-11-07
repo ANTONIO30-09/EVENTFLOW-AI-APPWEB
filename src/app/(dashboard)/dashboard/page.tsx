@@ -6,7 +6,11 @@ import { mockEvents } from "@/features/events/mock/events";
 import { AdminEvent, etiquetaEstado, colorEstado } from "@/features/events/types";
 
 export default function DashboardPage() {
+chore/formalizacion-repo
   const [events] = useState<AdminEvent[]>(mockEvents);
+
+  const [events, setEvents] = useState<AdminEvent[]>(mockEvents);
+dev
 
   // Formateador de fecha dd/mm/aaaa
   const formatFecha = (fechaStr: string) => {
@@ -47,7 +51,11 @@ export default function DashboardPage() {
         {events.length === 0 ? (
           <div className="py-8 px-3 text-left">
             <h3 className="font-serif text-xl text-brand-porcelain mb-1.5">No hay eventos todavía.</h3>
+chore/formalizacion-repo
             <p className="text-sm text-brand-porcelain/70">Crea el primero con el botón &quot;Nuevo evento&quot; de arriba.</p>
+
+            <p className="text-sm text-brand-porcelain/70">Crea el primero con el botón "Nuevo evento" de arriba.</p>
+dev
           </div>
         ) : (
           <div className="w-full">

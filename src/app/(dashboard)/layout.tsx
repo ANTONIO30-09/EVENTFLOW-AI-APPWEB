@@ -2,6 +2,10 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+chore/formalizacion-repo
+
+import Image from "next/image";
+dev
 import { usePathname, useRouter } from "next/navigation";
 import { CalendarDays, Users, BarChart2, LogOut } from "lucide-react";
 import { useAuth } from "@/shared/lib/AuthContext";
