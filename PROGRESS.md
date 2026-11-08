@@ -3,22 +3,26 @@
 ## Estado actual (fecha: 2026-11-07)
 
 - **Fase 1 (Landing page):** ✅ Completada y rediseñada con Glassmorphism.
+- **Hito 2 (Auth + Dashboard Protegido):** ✅ Completado.
+  - Auth real con Firebase (Email/Password + Google).
+  - Rutas protegidas (Guardián en `/dashboard`).
+  - Validaciones con Zod y React Hook Form.
+  - Rediseño Split-Screen (Login y Registro) con imagen y cristal.
 - **Repositorio formalizado:** ✅ Ramas `dev` y flujo de PR establecidos.
 - **Despliegue:** ✅ Subido a Firebase Hosting (https://admin-eventflow-ai.web.app/).
-- **Fase 2 (Auth + Dashboard + Eventos):** 🚧 Siguiente paso.
 
 ## Decisiones técnicas recientes
 
-- **Diseño (Landing):** Se implementó Glassmorphism (cristal esmerilado), Gradient Mesh y un fondo unificado de video fijo.
-- **Animaciones:** Se usó `HandwrittenTitle.tsx` (SVG Path Animation) para el trazo del logo y Kinetic Typography (letra por letra) para el storytelling. Todo optimizado con `Variants` de Framer Motion.
-- **Rendimiento:** Se creó `ParticlesBackground.tsx` usando Canvas HTML5 (evitando sobrecargar el DOM) y se optimizaron las transiciones del slider (Cross-fade).
-- **Tipografía:** Great Vibes (logo), Playfair Display (títulos editoriales), Inter (UI).
+- **Autenticación:** Firebase Auth con `AuthContext` y `authService` separado para mayor escalabilidad.
+- **Roles:** El registro web crea el rol `organizador` por defecto. Los `staff` serán creados por el organizador a futuro.
+- **Base de Datos:** Colección `profiles` en Firestore (alineada con las reglas de la app móvil).
+- **Diseño (Auth):** Formularios validados y diseño de dos columnas asimétrico de alta gama.
 
 ## Próximos pasos pendientes
 
-- [ ] **Hito 2:** Autenticación real con Firebase + layout protegido del dashboard.
 - [ ] **Hito 3:** CRUD de eventos y lectura desde Firestore.
 - [ ] **Hito 4:** Integración con IA + invitados (distribución y reglas de compatibilidad).
+- [ ] **Futuro:** Módulo para que el Organizador cree cuentas de Staff.
 
 ## Notas
 
