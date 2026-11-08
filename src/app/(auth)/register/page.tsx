@@ -94,13 +94,13 @@ export default function RegisterPage() {
 
       {/* LADO DERECHO - Formulario */}
       <div className="w-full lg:w-1/2 h-full flex items-center justify-center p-6 relative overflow-y-auto no-scrollbar">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(184,134,62,0.08)_0%,_transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(184,134,62,0.15)_0%,_transparent_70%)] pointer-events-none" />
         
         <motion.div 
           initial={{ opacity: 0, x: 20 }} 
           animate={{ opacity: 1, x: 0 }} 
           transition={{ duration: 0.6, delay: 0.2 }} 
-          className="w-full max-w-[400px] bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-8 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative z-10 my-auto"
+          className="w-full max-w-[400px] bg-white/[0.08] backdrop-blur-3xl border border-white/20 p-8 rounded-[2.5rem] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.1)] relative z-10 my-auto"
         >
           <div className="text-center mb-6">
             <h2 className={`${playfair.className} text-3xl text-white mb-1 font-bold`}>Crear Cuenta</h2>

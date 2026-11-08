@@ -3,10 +3,11 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/shared/lib/AuthContext";
-import { Loader2, LogOut, Home } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import Sidebar from "@/shared/components/layout/Sidebar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, loading, logout } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (loading) {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center bg-[#0d131f]">
+      <div className="h-screen w-full flex items-center justify-center bg-[#0d131f]">
         <Loader2 className="animate-spin text-brand-bronze" size={48} />
       </div>
     );
@@ -25,32 +26,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (!user) return null;
 
-  const handleLogout = async () => {
-    await logout();
-    router.push("/login");
-  };
-
   return (
-    <div className="min-h-screen bg-[#0d131f] text-brand-porcelain flex">
-      <aside className="w-64 bg-white/5 backdrop-blur-lg border-r border-white/10 p-6 flex flex-col">
-        <h2 className="text-2xl font-black text-brand-bronze mb-8 tracking-widest uppercase">EventFlow</h2>
-        <nav className="flex flex-col gap-2 flex-1">
-          <a href="/dashboard" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-sm font-bold">
-            <Home size={18} />
-            Inicio
-          </a>
-        </nav>
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-3 p-3 rounded-lg hover:bg-red-500/10 text-red-400 transition-colors text-sm font-bold mt-auto"
-        >
-          <LogOut size={18} />
-          Cerrar Sesión
-        </button>
-      </aside>
-      <main className="flex-1 p-8 overflow-y-auto">
-        {children}
-      </main>
+    <div className="h-screen w-full bg-[#0d131f] text-brand-porcelain flex overflow-hidden">
+      <Sidebar />
+      
+      <div className="flex-1 flex flex-col h-full overflow-hidden relative">
+        {/* Fondo sutil de gradiente para el panel */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(184,134,62,0.05)_0%,_transparent_50%)] pointer-events-none" />
+        
+        <main className="flex-1 overflow-y-auto p-8 relative z-10">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

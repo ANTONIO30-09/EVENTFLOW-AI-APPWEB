@@ -1,27 +1,26 @@
 # PROGRESS — EVENTFLOW AI Admin Web
 
-## Estado actual (fecha: 2026-11-07)
+## Estado actual (fecha: 2026-11-08)
 
-- **Fase 1 (Landing page):** ✅ Completada y rediseñada con Glassmorphism.
+- **Fase 1 (Landing page):** ✅ Completada.
 - **Hito 2 (Auth + Dashboard Protegido):** ✅ Completado.
-  - Auth real con Firebase (Email/Password + Google).
-  - Rutas protegidas (Guardián en `/dashboard`).
-  - Validaciones con Zod y React Hook Form.
-  - Rediseño Split-Screen (Login y Registro) con imagen y cristal.
-- **Repositorio formalizado:** ✅ Ramas `dev` y flujo de PR establecidos.
-- **Despliegue:** ✅ Subido a Firebase Hosting (https://admin-eventflow-ai.web.app/).
+- **Hito 3 (Gestión de Eventos):** 🚧 En progreso.
+  - ✅ Layout principal del Dashboard (Sidebar Premium).
+  - ✅ Sidebar colapsable con optimización de renderizado (transiciones CSS nativas, `will-change`).
+  - ✅ Vista principal del Dashboard con tarjetas KPI y "Empty State".
+  - ⏳ Modal para crear eventos (Siguiente paso).
+  - ⏳ Conexión a Firestore para listar eventos reales.
 
 ## Decisiones técnicas recientes
 
-- **Autenticación:** Firebase Auth con `AuthContext` y `authService` separado para mayor escalabilidad.
-- **Roles:** El registro web crea el rol `organizador` por defecto. Los `staff` serán creados por el organizador a futuro.
-- **Base de Datos:** Colección `profiles` en Firestore (alineada con las reglas de la app móvil).
-- **Diseño (Auth):** Formularios validados y diseño de dos columnas asimétrico de alta gama.
+- **Diseño UI:** Sidebar con Glassmorphism, menú colapsable y perfil de usuario anclado al fondo.
+- **Rendimiento:** Las animaciones del Sidebar usan `transition-[width]` y `will-change` para evitar re-renders masivos en el dashboard.
+- **Estructura:** Uso de la arquitectura Feature-Based (`src/features` y `src/shared`).
 
 ## Próximos pasos pendientes
 
-- [ ] **Hito 3:** CRUD de eventos y lectura desde Firestore.
-- [ ] **Hito 4:** Integración con IA + invitados (distribución y reglas de compatibilidad).
+- [ ] **Hito 3:** Crear modal de "Nuevo Evento" y guardar en Firestore.
+- [ ] **Hito 4:** Integración con IA + invitados.
 - [ ] **Futuro:** Módulo para que el Organizador cree cuentas de Staff.
 
 ## Notas
