@@ -17,3 +17,11 @@
     @apply bg-brand-night text-brand-porcelain font-sans;
   }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

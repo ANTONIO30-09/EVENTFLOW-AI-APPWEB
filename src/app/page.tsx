@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import OptimizedImage from "@/shared/components/ui/OptimizedImage";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
@@ -220,12 +221,13 @@ export default function LandingPage() {
             <div className="absolute right-0 bottom-0 w-full md:w-[65%] h-[90vh] z-20 pointer-events-none flex justify-center md:justify-end items-end overflow-hidden">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div key={page} custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" className="relative z-10 w-full h-full flex justify-center md:justify-end items-end">
-                  <Image 
+                  <OptimizedImage 
                     src={currentSlide.image} 
                     alt={currentSlide.title} 
                     width={1200} 
                     height={1200} 
-                    className={`object-contain object-bottom w-auto h-full [filter:drop-shadow(0_10px_15px_rgba(0,0,0,0.6))_drop-shadow(0_30px_60px_rgba(0,0,0,0.9))] will-change-transform transition-transform duration-700 ${currentSlide.id === 3 ? 'md:translate-x-4 lg:translate-x-12' : ''} ${currentSlide.isBig ? 'scale-110 md:scale-[1.15] origin-bottom' : 'scale-100'}`} 
+                    className={`object-contain object-bottom w-auto h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] will-change-transform transition-transform duration-700 ${currentSlide.id === 2 ? "translate-x-8 md:translate-x-16 lg:translate-x-24" : ""} ${currentSlide.id === 3 ? "md:translate-x-4 lg:translate-x-12" : ""} ${currentSlide.isBig ? "scale-110 md:scale-[1.15] origin-bottom" : "scale-100"}`} 
+                    containerClassName="w-full h-full flex justify-center md:justify-end items-end"
                     priority 
                   />
                 </motion.div>

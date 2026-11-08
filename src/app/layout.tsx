@@ -7,13 +7,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "EventFlow AI - Admin",
-  description: "Panel de Administración Web",
+  title: "EventFlow AI - Admin Panel",
+  description: "Plataforma de gestión logística para eventos de alta gama",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body className={`${inter.variable} ${playfair.variable} antialiased bg-[#0d131f]`}>
