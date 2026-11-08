@@ -235,12 +235,12 @@ export default function LandingPage() {
             </div>
             
             {/* CONTROLES INFERIORES - SOLO FLECHAS, SIN BARRA */}
-            <div className="absolute bottom-8 right-6 lg:right-10 z-50 flex justify-end items-end">
-              <div className="flex items-center gap-4">
-                <button onClick={() => paginate(-1)} className="group p-4 text-brand-porcelain/40 hover:text-white transition-all duration-300">
+            <div className="absolute bottom-8 right-6 lg:right-10 z-50 flex justify-end items-center">
+              <div className="flex items-center gap-2">
+                <button onClick={() => paginate(-1)} className="group p-3 text-brand-porcelain/40 hover:text-white transition-all duration-300">
                   <ArrowLeft size={36} strokeWidth={1.5} className="transform group-hover:-translate-x-2 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0)] group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
                 </button>
-                <button onClick={() => paginate(1)} className="group p-4 text-brand-bronze hover:text-[#FFD700] transition-all duration-300">
+                <button onClick={() => paginate(1)} className="group p-3 text-brand-bronze hover:text-[#FFD700] transition-all duration-300">
                   <ArrowRight size={48} strokeWidth={1.5} className="transform group-hover:translate-x-2 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(184,134,62,0.4)] group-hover:drop-shadow-[0_0_25px_rgba(255,215,0,0.9)]" />
                 </button>
               </div>
