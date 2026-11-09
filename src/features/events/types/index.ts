@@ -1,24 +1,13 @@
-export type EventStatus = 'planificacion' | 'enCurso' | 'finalizado';
-
 export interface AdminEvent {
-  id: string;
-  nombre: string;
-  fecha: string;
-  lugar: string;
-  estado: EventStatus;
-  invitados: number;
-  checkIn: number;
-  itemsEscaneados: number;
+  id?: string;
+  title: string;
+  type: "boda" | "quince" | "corporativo" | "otro";
+  customType?: string;
+  date: string;
+  location: string;
+  lat?: number;
+  lng?: number;
+  guestCount: number;
+  organizerId: string;
+  createdAt: number;
 }
-
-export const etiquetaEstado = (e: EventStatus) => {
-  if (e === 'planificacion') return 'Planificación';
-  if (e === 'enCurso') return 'En curso';
-  return 'Finalizado';
-};
-
-export const colorEstado = (e: EventStatus) => {
-  if (e === 'planificacion') return 'bg-brand-bronze';
-  if (e === 'enCurso') return 'bg-brand-porcelain/50';
-  return 'bg-brand-sage';
-};

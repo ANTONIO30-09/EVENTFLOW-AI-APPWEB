@@ -34,7 +34,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         {/* Fondo sutil de gradiente para el panel */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(184,134,62,0.05)_0%,_transparent_50%)] pointer-events-none" />
         
-        <main className="flex-1 overflow-y-auto p-8 relative z-10">
+        <main className="flex-1 overflow-y-auto relative z-10 w-full h-full">
           {children}
         </main>
       </div>
