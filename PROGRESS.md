@@ -2,26 +2,29 @@
 
 ## Estado actual (fecha: 2026-11-08)
 
-- **Fase 1 (Landing page):** ✅ Completada.
+- **Fase 1 (Landing page):** ✅ Completada y desplegada.
 - **Hito 2 (Auth + Dashboard Protegido):** ✅ Completado.
-- **Hito 3 (Gestión de Eventos):** 🚧 En progreso.
-  - ✅ Layout principal del Dashboard (Sidebar Premium).
-  - ✅ Sidebar colapsable con optimización de renderizado (transiciones CSS nativas, `will-change`).
-  - ✅ Vista principal del Dashboard con tarjetas KPI y "Empty State".
-  - ⏳ Modal para crear eventos (Siguiente paso).
-  - ⏳ Conexión a Firestore para listar eventos reales.
+- **Hito 3 (Gestión de Eventos):** 🚧 En progreso (80% completado).
+  - ✅ Layout principal del Dashboard (Sidebar colapsable y estado global).
+  - ✅ Rediseño UI: Glassmorphism avanzado, Gradient Mesh y animaciones con Framer Motion.
+  - ✅ CRUD de Eventos: Crear, editar y eliminar eventos conectados a Firestore.
+  - ✅ Integración de Mapa (Leaflet nativo) con búsqueda por texto (Nominatim), autocompletado contextual a Bolivia y soporte para coordenadas exactas.
+  - ✅ Modal dinámico que expande el mapa y colapsa el Sidebar automáticamente.
 
 ## Decisiones técnicas recientes
 
-- **Diseño UI:** Sidebar con Glassmorphism, menú colapsable y perfil de usuario anclado al fondo.
-- **Rendimiento:** Las animaciones del Sidebar usan `transition-[width]` y `will-change` para evitar re-renders masivos en el dashboard.
-- **Estructura:** Uso de la arquitectura Feature-Based (`src/features` y `src/shared`).
+- **Mapas:** Se descartó `react-leaflet` por conflictos con React 19. Se implementó Leaflet nativo con `useRef` y `useEffect` para inicializar el mapa de forma segura.
+- **Framer Motion:** Uso de `Variants` y tipado `as const` para evitar errores de TypeScript en `easeOut`.
+- **Comunicación de componentes:** Uso de `CustomEvent` (`collapse-sidebar`, `restore-sidebar`) para comunicar el Modal de Eventos con el Sidebar sin usar Context API.
+- **Base de Datos:** Colección `events` con `organizerId`, `lat`, `lng`, `guestCount`, etc.
 
-## Próximos pasos pendientes
+## Próximos pasos pendientes (Para mañana)
 
-- [ ] **Hito 3:** Crear modal de "Nuevo Evento" y guardar en Firestore.
-- [ ] **Hito 4:** Integración con IA + invitados.
-- [ ] **Futuro:** Módulo para que el Organizador cree cuentas de Staff.
+- [ ] **Hito 3:** Finalizar vista detallada de cada evento ("Administrar Evento").
+- [ ] **Hito 3:** Módulo de Invitados (CRUD, importación CSV, asignación a mesas).
+- [ ] **Hito 4:** Módulo de Distribución IA.
+- [ ] **Hito 4:** Inventario y QRs.
+- [ ] **Futuro:** Módulo de Staff (requiere Cloud Functions).
 
 ## Notas
 
