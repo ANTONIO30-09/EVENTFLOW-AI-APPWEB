@@ -30,6 +30,7 @@ export const registerWithEmail = async (email: string, pass: string, name: strin
     uid: user.uid,
     email: user.email,
     displayName: name,
+    name: name,
     organization: organization,
     role: "organizador", // Rol por defecto
     createdAt: serverTimestamp(),
@@ -50,6 +51,7 @@ export const loginWithGoogle = async () => {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName || "Organizador",
+      name: user.displayName || "Organizador",
       organization: "Por definir",
       role: "organizador",
       createdAt: serverTimestamp(),

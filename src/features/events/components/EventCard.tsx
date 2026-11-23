@@ -41,7 +41,7 @@ export default function EventCard({ event, onEdit, onDelete, onManage }: Props) 
         </span>
       </div>
 
-      <h3 className="text-2xl font-bold text-white mb-4 truncate pr-16 drop-shadow-md">{event.title}</h3>
+      <h3 className="text-2xl font-bold text-white mb-4 truncate pr-16 drop-shadow-md">{event.name}</h3>
 
       <div className="flex flex-col gap-2.5 mb-6">
         <p className="text-brand-porcelain/60 text-sm flex items-center gap-3"><CalendarDays size={16} className="text-brand-bronze/70" /> {event.date}</p>

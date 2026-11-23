@@ -1,6 +1,7 @@
 export interface AdminEvent {
   id?: string;
-  title: string;
+  name: string;
+  status?: "planificacion" | "en_curso" | "finalizado";
   type: "boda" | "quince" | "corporativo" | "otro";
   customType?: string;
   date: string;

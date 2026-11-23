@@ -13,7 +13,7 @@ import { AdminEvent } from "../types";
 const MapPicker = dynamic(() => import("@/shared/components/ui/MapPicker"), { ssr: false });
 
 const eventSchema = z.object({
-  title: z.string().min(3, "El nombre debe tener al menos 3 caracteres"),
+  name: z.string().min(3, "El nombre debe tener al menos 3 caracteres"),
   type: z.enum(["boda", "quince", "corporativo", "otro"]),
   customType: z.string().optional(),
   date: z.string().min(1, "Selecciona una fecha"),
@@ -122,9 +122,9 @@ export default function EventModal({ onClose, onEventSaved, eventToEdit }: Props
                 <label className="text-xs text-brand-porcelain/60 font-medium mb-1 block">Nombre del Evento</label>
                 <div className="relative">
                   <Type className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-porcelain/30" size={18} />
-                  <input type="text" placeholder="Ej: Boda de Ana y Carlos" {...register("title")} className="w-full bg-[#0d131f]/60 border border-white/10 text-white rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-bronze transition-colors text-sm" />
+                  <input type="text" placeholder="Ej: Boda de Ana y Carlos" {...register("name")} className="w-full bg-[#0d131f]/60 border border-white/10 text-white rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-bronze transition-colors text-sm" />
                 </div>
-                {errors.title && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.title.message}</p>}
+                {errors.name && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.name.message}</p>}
               </div>
 
               <div className="grid grid-cols-2 gap-3">

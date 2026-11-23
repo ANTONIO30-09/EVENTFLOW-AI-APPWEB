@@ -36,7 +36,7 @@ export default function MyEventsPage() {
       const matchesType = typeFilter === "todos" || e.type === typeFilter;
       const matchesText =
         term === "" ||
-        e.title.toLowerCase().includes(term) ||
+        e.name.toLowerCase().includes(term) ||
         e.location.toLowerCase().includes(term);
       return matchesType && matchesText;
     });

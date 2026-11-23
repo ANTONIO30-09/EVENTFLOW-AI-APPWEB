@@ -102,7 +102,7 @@ export default function DashboardHome() {
             </div>
             <div className="overflow-hidden">
               <p className="text-sm text-brand-porcelain/50 font-medium mb-1">Próximo Evento</p>
-              <p className="text-2xl font-bold text-white truncate max-w-[180px]">{nextEvent ? nextEvent.title : "Ninguno"}</p>
+              <p className="text-2xl font-bold text-white truncate max-w-[180px]">{nextEvent ? nextEvent.name : "Ninguno"}</p>
             </div>
           </div>
         </motion.div>
