@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/shared/lib/AuthContext";
 import { Loader2 } from "lucide-react";
 import Sidebar from "@/shared/components/layout/Sidebar";
+import AccessBlocked from "@/shared/components/ui/AccessBlocked";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,6 +26,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }
 
   if (!user) return null;
+
+  // La seguridad real esta en las reglas de Firestore; esto es solo experiencia de usuario
+  if (!profile || !profile.active || profile.role === "pendiente") {
+    return <AccessBlocked variant="pending" />;
+  }
+  if (profile.role !== "admin") {
+    return <AccessBlocked variant="mobile-only" />;
+  }
 
   return (
     <div className="h-screen w-full bg-[#0d131f] text-brand-porcelain flex overflow-hidden">
