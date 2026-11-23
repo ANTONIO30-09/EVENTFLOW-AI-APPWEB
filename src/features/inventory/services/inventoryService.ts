@@ -9,6 +9,7 @@ export const createItem = async (
   const docRef = await addDoc(itemsRef, {
     ...itemData,
     timesUsed: itemData.status === "en_uso" ? 1 : 0,
+    scans: {},
     createdAt: Date.now(),
   });
   return docRef.id;
@@ -19,9 +20,9 @@ export const updateItem = async (id: string, data: Partial<InventoryItem>) => {
   await updateDoc(docRef, data);
 };
 
-export const getUserInventory = async (organizerId: string) => {
+export const getUserInventory = async (adminId: string) => {
   const itemsRef = collection(db, "inventory");
-  const q = query(itemsRef, where("organizerId", "==", organizerId));
+  const q = query(itemsRef, where("adminId", "==", adminId));
   const snapshot = await getDocs(q);
 
   return snapshot.docs.map((d) => ({

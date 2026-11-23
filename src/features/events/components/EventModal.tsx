@@ -71,7 +71,7 @@ export default function EventModal({ onClose, onEventSaved, eventToEdit }: Props
       if (eventToEdit && eventToEdit.id) {
         await updateEvent(eventToEdit.id, data);
       } else {
-        await createEvent({ ...data, organizerId: user.uid });
+        await createEvent({ ...data, adminId: user.uid });
       }
       onEventSaved();
       onClose();

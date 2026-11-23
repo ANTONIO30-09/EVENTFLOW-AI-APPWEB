@@ -65,7 +65,7 @@ export default function InventoryModal({ onClose, onItemSaved, itemToEdit }: Pro
       if (itemToEdit && itemToEdit.id) {
         await updateItem(itemToEdit.id, payload);
       } else {
-        await createItem({ ...payload, organizerId: user.uid });
+        await createItem({ ...payload, adminId: user.uid });
       }
       onItemSaved();
       onClose();

@@ -21,7 +21,8 @@ export interface InventoryItem {
   status: InventoryStatus;
   timesUsed: number;
   notes?: string;
-  organizerId: string;
+  scans?: Record<string, string>;
+  adminId: string;
   createdAt: number;
 }
 

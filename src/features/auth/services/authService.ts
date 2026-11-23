@@ -32,7 +32,8 @@ export const registerWithEmail = async (email: string, pass: string, name: strin
     displayName: name,
     name: name,
     organization: organization,
-    role: "organizador", // Rol por defecto
+    role: "pendiente", // se autoriza desde allowed_admins
+    active: false,
     createdAt: serverTimestamp(),
   });
 
@@ -53,7 +54,8 @@ export const loginWithGoogle = async () => {
       displayName: user.displayName || "Organizador",
       name: user.displayName || "Organizador",
       organization: "Por definir",
-      role: "organizador",
+      role: "pendiente",
+      active: false,
       createdAt: serverTimestamp(),
     });
   }

@@ -2,11 +2,14 @@ import { collection, addDoc, query, where, getDocs, deleteDoc, doc, updateDoc } 
 import { db } from "@/shared/lib/firebase";
 import { AdminEvent } from "../types";
 
-export const createEvent = async (eventData: Omit<AdminEvent, "id" | "createdAt">) => {
+export const createEvent = async (
+  eventData: Omit<AdminEvent, "id" | "createdAt" | "status" | "assignedUserIds">
+) => {
   const eventsRef = collection(db, "events");
   const docRef = await addDoc(eventsRef, {
-    status: "planificacion",
     ...eventData,
+    status: "planificacion",
+    assignedUserIds: [],
     createdAt: Date.now(),
   });
   return docRef.id;
@@ -17,11 +20,11 @@ export const updateEvent = async (id: string, data: Partial<AdminEvent>) => {
   await updateDoc(docRef, data);
 };
 
-export const getUserEvents = async (organizerId: string) => {
+export const getUserEvents = async (adminId: string) => {
   const eventsRef = collection(db, "events");
-  const q = query(eventsRef, where("organizerId", "==", organizerId));
+  const q = query(eventsRef, where("adminId", "==", adminId));
   const querySnapshot = await getDocs(q);
-  
+
   return querySnapshot.docs.map((d) => {
     const data = d.data();
     return {

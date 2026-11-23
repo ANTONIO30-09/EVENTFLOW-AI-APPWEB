@@ -1,7 +1,8 @@
+export type EventStatus = "planificacion" | "en_curso" | "finalizado";
+
 export interface AdminEvent {
   id?: string;
   name: string;
-  status?: "planificacion" | "en_curso" | "finalizado";
   type: "boda" | "quince" | "corporativo" | "otro";
   customType?: string;
   date: string;
@@ -9,6 +10,10 @@ export interface AdminEvent {
   lat?: number;
   lng?: number;
   guestCount: number;
-  organizerId: string;
+  status?: EventStatus;
+  adminId: string;
+  assignedUserIds?: string[];
+  distributionApproved?: boolean;
+  distributionSource?: string;
   createdAt: number;
 }
