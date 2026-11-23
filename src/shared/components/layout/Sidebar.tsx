@@ -77,7 +77,7 @@ export default function Sidebar() {
         <div className="h-full flex flex-col bg-white/[0.02] border border-white/[0.05] rounded-[1.5rem] p-2 w-full">
           <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col items-center w-full py-2">
             {MENU_ITEMS.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = item.href === "/dashboard" ? pathname === item.href : pathname.startsWith(item.href);
               const Icon = item.icon;
               return (
                 <Link 
