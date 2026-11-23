@@ -5,6 +5,7 @@ import { useAuth } from "@/shared/lib/AuthContext";
 import { CalendarDays, Package, Plus, ArrowRight, Clock, Loader2 } from "lucide-react";
 import { AdminEvent } from "@/features/events/types";
 import { useEvents } from "@/features/events/hooks/useEvents";
+import { useInventory } from "@/features/inventory/hooks/useInventory";
 import EventCard from "@/features/events/components/EventCard";
 import EventModal from "@/features/events/components/EventModal";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -22,6 +23,7 @@ const itemVariants: Variants = {
 export default function DashboardHome() {
   const { user } = useAuth();
   const { events, loading, reload, removeEvent } = useEvents();
+  const { items: inventoryItems } = useInventory();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [eventToEdit, setEventToEdit] = useState<AdminEvent | null>(null);
 
@@ -114,7 +116,7 @@ export default function DashboardHome() {
             </div>
             <div>
               <p className="text-sm text-brand-porcelain/50 font-medium mb-1">Items en Inventario</p>
-              <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60">0</p>
+              <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60">{inventoryItems.length}</p>
             </div>
           </div>
         </motion.div>
