@@ -16,7 +16,7 @@ const MENU_ITEMS = [
   { name: "Invitados", href: "/dashboard/guests", icon: Users },
   { name: "Distribución IA", href: "/dashboard/ai-seating", icon: BrainCircuit },
   { name: "Inventario y QRs", href: "/dashboard/inventory", icon: Package },
-  { name: "Gestión de Staff", href: "/dashboard/staff", icon: ShieldCheck },
+  { name: "Gestión de usuarios", href: "/dashboard/staff", icon: ShieldCheck },
   { name: "Reportes", href: "/dashboard/reports", icon: BarChart3 },
 ];
 
